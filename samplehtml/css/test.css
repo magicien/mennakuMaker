@@ -1,15 +1,20 @@
-#wrapper {
+div#wrapper {
     width: 80%;
     margin: 0 auto;
+    position: relative;
 }
-#ccopyarea {
+
+div#ccopyarea {
+    position: relative; 
     width:  200px;
     height: 500px;
-    position: relative; 
 }
-#ccopy {
+
+span#ccopy {
+    width:  150px;
+    height: 400px;
     position: absolute;
-    left: 300px;
+    left: 220px;
     top: -630px;
 
     text-shadow: 1px 1px 10px #FFA000;
@@ -19,5 +24,6 @@
     -moz-writing-mode: vertical-rl;
     -webkit-writing-mode: vertical-rl;
 
-}
+    -webkit-transform: rotate(10deg) translate(-10px,0px);
 
+}
