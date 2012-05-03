@@ -1,8 +1,7 @@
 {
-  "name": "mennakumaker",
+  "name": "node-example",
   "version": "0.0.1",
-  "dependencies:": {
+  "dependencies": {
     "express": "2.5.9"
   }
 }
-
