@@ -1,0 +1,23 @@
+#wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+#ccopyarea {
+    width:  200px;
+    height: 500px;
+    position: relative; 
+}
+#ccopy {
+    position: absolute;
+    left: 300px;
+    top: -630px;
+
+    text-shadow: 1px 1px 10px #FFA000;
+    font-size: 25px;    
+    font-color: #AAAAAA;
+    font-weight: bold;
+    -moz-writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
+
+}
+
