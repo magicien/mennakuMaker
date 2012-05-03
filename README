@@ -3,3 +3,7 @@ Men's Knuckle like image maker
 
 * heroku:
 https://api.heroku.com/myapps/mennakumaker
+
+exec command following:
+git remote add heroku git@heroku.com:mennakumaker.git
+
