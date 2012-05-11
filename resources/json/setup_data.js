@@ -1,8 +1,11 @@
 
 var setup = function(){
 	var data = getData(), i,size=data.length;
+	db.comments.drop();
 	for(i=0; i < size; i++){
-		db.comment.save(data[i]);
+		var entry = data[i];
+		entry.seq=i;
+		db.comments.save(entry);
 	}
 };
 
