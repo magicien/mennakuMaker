@@ -1,0 +1,15 @@
+h1= title
+div#main
+	p= message
+	section
+		p iteration of an array
+		ul
+			each item in arr
+				li= item
+	form
+		input#input1(type='text', val='hogehoge')
+		button#btn_submit= 'submit'
+script(type='text/javascript')
+	$(function(){
+		$('#input1').val('hoehoge')
+	});

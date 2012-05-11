@@ -16,12 +16,26 @@ var CommentSchema = new Schema({
 });
 
 app.configure(function(){
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'jade');
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());
+  app.use(app.router);
+  app.use(express.static(__dirname + '/public'));
 	mongoose.connect(mongoUri);
 	mongoose.model('comment', CommentSchema);
 });
 
 app.get('/', function(request, response) {
 	response.send('Hello World!!');
+});
+app.get('/sample', function(req, res){
+	res.render('sample', {
+		title: 'jade sample',
+		message: 'hello, world!',
+		arr: ['hoge', 'foo', 'bar']
+
+	});
 });
 app.get('/comment/random', routes.getCommentRandam);
 
