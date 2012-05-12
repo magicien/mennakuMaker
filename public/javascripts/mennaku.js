@@ -135,6 +135,11 @@ g.margin = 10;
       g.ccopy.style.left = nowLeft + "px";
       g.ccopy.style.top = nowTop + "px";
 
+      trans.left = nowLeft;
+      trans.top  = nowTop + g.image.offsetHeight;
+      document.getElementById("input_left").value = trans.left;
+      document.getElementById("input_top").value  = trans.top;
+
       //showInfo();
 
       return false;
