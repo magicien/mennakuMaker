@@ -22,6 +22,7 @@ div#wrapper
 			ul
 				li キャッチコピー: 
 				input#copymsg(type='text',value=snap.message)
+				input#getcopy(type='button',value='GET');
 				li 大きさ:
 				input#input_size(type='range',value=snap.decoration.fontSize,min='5',max='50')
 				li 本文色:
@@ -36,7 +37,9 @@ div#wrapper
 				input#input_left(type='text',value=snap.transform.left)
 				input#input_top(type='text',value=snap.transform.top)
 
-		div#adv
+	div#footer
+		p= '本サービスは本家メンズナックルとは何の関係もないです'
+
 script(type='text/javascript',src='/javascripts/copymsg.js')
 script(type='text/javascript',src='/javascripts/colorpicker.js')
 link(rel='stylesheet',type='text/css',href='/stylesheets/colorpicker.css')

@@ -33,6 +33,14 @@ $('#copymsg').keypress(function(e){
 		updateMessagePosition();
 	});
 	
+	$('#getcopy').click(function(){
+		$.getJSON('/comment/random').then(function(comment){
+			$('#copymsg').val(comment.message);
+			$('#ccopy').html(comment.message);
+		});
+
+	});
+	
 	$('#input_size').change(function(){
 		$('#ccopy').css('fontSize',parseInt($('#input_size').val())+'px');
 		updateMessagePosition();
