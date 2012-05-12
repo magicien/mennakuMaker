@@ -3,7 +3,7 @@ div#wrapper
 		div#title
 			h1= title
 	div#main
-		img#img(src= snap.imageURI)
+		img(src= snap.imageURI)
 		div#ccopyarea
 			span(id='ccopy')= snap.message
 	div#sidebar
@@ -23,7 +23,9 @@ div#wrapper
 			h メッセージ
 			ul
 				li キャッチコピー: 
-				input(type='text',id='copymsg',value=snap.message)
+				input#copymsg(type='text',value=snap.message)
+				li 大きさ:
+				input#input_size(type='range',value=snap.decoration.fontSize,min='5',max='50')
 				li 本文色:
 				li シャドウ:
 				li 角度:
@@ -35,7 +37,6 @@ div#wrapper
 		div#adv
 script(type='text/javascript',src='/javascripts/copymsg.js')
 script(type='text/javascript')
-	window.addEventListener("load", init, true);
 	var trans = {top:#{snap.transform.top}, left:#{snap.transform.left}};
 	var decoration = {
 		fontSize:#{snap.decoration.fontSize},
@@ -47,4 +48,3 @@ script(type='text/javascript')
 			color:'#{snap.decoration.textShadow.color}'
 		}
 	};
-

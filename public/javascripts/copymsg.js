@@ -11,14 +11,6 @@ $('#copymsg').keypress(function(e){
 	}
 });
 
-/*
-$(function(){
-	//var $('TODO ID').val($('#ccopy').css('-webkit-transform')
-	var transform = $('#ccopy').css('-webkit-transform');
-
-});
-*/
-
 	$('#ccopy').css('position', 'relative');
 	$('#ccopy').css('left', trans.left+200+'px');
 	$('#ccopy').css('top', trans.top-600+'px');
@@ -37,6 +29,10 @@ $(function(){
 		$('#ccopy').css('top', parseInt($('#input_top').val())-600+'px');
 	});
 	
+	$('#input_size').change(function(){
+		$('#ccopy').css('fontSize',parseInt($('#input_size').val())+'px');
+	});
+
 	$('#input_rotate').change(function(){
 		$('#ccopy').css('-webkit-transform','rotate\('+$('#input_rotate').val()+'deg\)');
 	});
