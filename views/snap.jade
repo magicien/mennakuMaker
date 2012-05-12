@@ -8,7 +8,8 @@ div#wrapper
 			span(style= snap.cssstyle)= snap.message
 	div#sidebar
 		div#sns
-			input(type='button', value='tw')
+			a(href="http://twitter.com/share?url=http%3A%2F%2Fmennakumaker.herokuapp.com%2Fsnap%2F" + snap._id + "&text=" + snap.message + "&counturl=http%3A%2F%2Fmennakumaker.herokuapp.com%2F&hashtags=mennakumaker")
+				img(src="/images/icons/32px/twitter.png")
 			input(type='button', value='fb')
 			input(type='button', value='G+')
 			input(type='button', value='mi')
