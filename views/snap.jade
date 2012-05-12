@@ -17,12 +17,6 @@ div#wrapper
 			a(href="#")
 				img(src="/images/icons/20px/mixi.png")
 		div#edit_area
-			h 画像 
-			br
-			input(type='text',value='')
-			
-			br
-			br
 			h メッセージ
 			ul
 				li キャッチコピー: 
@@ -30,7 +24,11 @@ div#wrapper
 				li 大きさ:
 				input#input_size(type='range',value=snap.decoration.fontSize,min='5',max='50')
 				li 本文色:
+				div#color1(class='cselector')
+					div(class='inner')
 				li シャドウ:
+				div#color2(class='cselector')
+					dif(class='inner')
 				li 角度:
 				input#input_rotate(type='range',value=snap.transform.rotate,min='-50',max='50')
 				li 表示位置
@@ -39,6 +37,8 @@ div#wrapper
 
 		div#adv
 script(type='text/javascript',src='/javascripts/copymsg.js')
+script(type='text/javascript',src='/javascripts/colorpicker.js')
+link(rel='stylesheet',type='text/css',href='/stylesheets/colorpicker.css')
 script(type='text/javascript')
 	var trans = {top:#{snap.transform.top}, left:#{snap.transform.left}};
 	var decoration = {

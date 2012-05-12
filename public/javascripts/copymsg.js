@@ -9,7 +9,7 @@ $('#copymsg').blur(function(){
 $('#copymsg').keypress(function(e){
 	if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
 		$('#ccopy').html($('#copymsg').val());
-		calcMovableArea();
+	calcMovableArea();
 	}
 });
 
@@ -25,23 +25,41 @@ $('#copymsg').keypress(function(e){
 
 	$('#input_left').blur(function(){
 		$('#ccopy').css('left', parseInt($('#input_left').val())+200+'px');
-		calcMovableArea();
+	calcMovableArea();
 	});
 
 	$('#input_top').blur(function(){
 		$('#ccopy').css('top', parseInt($('#input_top').val())-600+'px');
-		calcMovableArea();
+	calcMovableArea();
 	});
 	
 	$('#input_size').change(function(){
 		$('#ccopy').css('fontSize',parseInt($('#input_size').val())+'px');
-		calcMovableArea();
+	calcMovableArea();
 	});
 
 	$('#input_rotate').change(function(){
 		$('#ccopy').css('-webkit-transform','rotate\('+$('#input_rotate').val()+'deg\)');
-		calcMovableArea();
+	calcMovableArea();
 	});
+	
+	$(function(){
+		$('#color1').ColorPicker({
+			onChange:function (hsb, hex, rgb) {
+				$('#color1 div.inner').css('backgroundColor', '#' + hex);
+	                        $('#ccopy').css('color', '#' + hex);
+	       }
+              });
+        });
+
+	$(function(){
+		$('#color2').ColorPicker({
+			onChange:function (hsb, hex, rgb) {
+				$('#color2 div.inner').css('backgroundColor', '#' + hex);
+	                        $('#ccopy').css('text-shadow', parseInt(decoration.textShadow.x)+'px '+parseInt(decoration.textShadow.y)+'px '+parseInt(decoration.textShadow.blur)+'px #' + hex);
+	       }
+              });
+        });
 
 });
 
