@@ -41,7 +41,7 @@ exports.getSnapById = function(req, res){
 		if(!err){
 			if(snap){
 			res.render('snap',{
-				title: 'MEN\'S KUNECKLE MAKER',
+				title: 'MEN\'S KNUCKLE MAKER',
 				snap: snap
 			});
 			}else{
