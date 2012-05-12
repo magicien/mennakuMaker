@@ -69,5 +69,11 @@ $('#copymsg').keypress(function(e){
               });
         });
 
+/*
+	$('#update_btn').click(function(){
+
+	});
+	*/
+
 });
 
