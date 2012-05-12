@@ -2,12 +2,20 @@ div#wrapper
 	div#header
 		div#title
 			h1= title
+			h2= '今日の伊達ワルな奴ら'
 	div#cover
-		ul
-			each snap in snaps
-				li
-					a(href='/snap/'+snap._id)
-						p= 'hogehoge'
-						div 
-							img.sumbnail(src=snap.imageURI)
-	
+		div.left
+			div#first
+				a(href='/snap/'+snaps[0]._id)
+					div 
+						img.sumbnail(src=snaps[0].imageURI)
+		div.right
+			div#second
+				a(href='/snap/'+snaps[1]._id)
+					div 
+						img.sumbnail(src=snaps[1].imageURI)
+			div#third
+				a(href='/snap/'+snaps[2]._id)
+					div 
+						img.sumbnail(src=snaps[2].imageURI)
+		
