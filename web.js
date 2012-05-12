@@ -17,10 +17,8 @@ var CommentSchema = new Schema({
 
 var SnapSchema = new Schema({
 	imageURI: String,
-	message: {
-		body: String,
-		Style: String
-	}
+	message: String, 
+	cssstyle: String
 });
 
 app.configure(function(){
@@ -32,14 +30,15 @@ app.configure(function(){
   app.use(express.static(__dirname + '/public'));
 	mongoose.connect(mongoUri);
 	mongoose.model('comment', CommentSchema);
+	mongoose.model('snap', CommentSchema);
 });
 
 app.get('/', function(request, response) {
 	response.send('Hello World!!');
 });
-app.get('/snap', function(req, res){});
-app.post('/snap', function(req, res){});
-app.get('/snap/:id', function(req, res){});
+app.get('/snap', routes.newSnap);
+app.post('/snap', routes.createSnap);
+app.get('/snap/:id', routes.getSnapById);
 app.get('/sample', function(req, res){
 	res.render('sample', {
 		title: 'jade sample',
