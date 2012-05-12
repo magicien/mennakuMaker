@@ -33,7 +33,12 @@ var SnapSchema = new Schema({
 			color:String,
 			blur:Number
 		}
-	}
+	},
+	ts: Date
+});
+SnapSchema.pre('save', function(next){
+	this.set('ts', new Date());
+	next();
 });
 
 app.configure(function(){
