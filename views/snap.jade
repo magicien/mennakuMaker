@@ -3,7 +3,7 @@ div#wrapper
 		div#title
 			h1= title
 	div#main
-		img(src= snap.imageURI)
+		img#img(src= snap.imageURI)
 		div#ccopyarea
 			span(id='ccopy')= snap.message
 	div#sidebar
@@ -35,6 +35,7 @@ div#wrapper
 		div#adv
 script(type='text/javascript',src='/javascripts/copymsg.js')
 script(type='text/javascript')
+	window.addEventListener("load", init, true);
 	var trans = {top:#{snap.transform.top}, left:#{snap.transform.left}};
 	var decoration = {
 		fontSize:#{snap.decoration.fontSize},
@@ -46,3 +47,4 @@ script(type='text/javascript')
 			color:'#{snap.decoration.textShadow.color}'
 		}
 	};
+
