@@ -40,6 +40,16 @@
      <div id="create_button" >
        create
      </div>
+     catch copy
+     <input id="copymsg" type="text" value="aiueo" onblur="copymsg()"/>
+     <script type="text/javascript">
+     	function copymsg() {
+		//alert('hoge');
+		var msg = document.getElementById('copymsg').value;
+		document.getElementById('ccopy').innerHTML = msg;
+		//alert(document.getElementByid('ccopy').innerHTML);
+	}
+     </script>
      </div>
      
      <div id="adv" >
