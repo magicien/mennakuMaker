@@ -5,7 +5,7 @@ div#wrapper
 	div#main
 		img(src= snap.imageURI)
 		div#ccopyarea
-			span(id='ccopy',style= snap.cssstyle)= snap.message
+			span(id='ccopy')= snap.message
 	div#sidebar
 		div#sns
 			a(href="http://twitter.com/share?url=http%3A%2F%2Fmennakumaker.herokuapp.com%2Fsnap%2F" + snap._id + "&text=" + snap.message + "&counturl=http%3A%2F%2Fmennakumaker.herokuapp.com%2F&hashtags=mennakumaker")
@@ -25,11 +25,14 @@ div#wrapper
 				li キャッチコピー: 
 				input(type='text',id='copymsg',value=snap.message)
 				li 本文色:
-				br
 				li シャドウ:
-				br
 				li 角度:
-				input(type='range',value='0',min='-30',max='30')
+				input#input_rotate(type='range',value=snap.transform.rotate,min='-30',max='30')
+				li 表示位置
+				input#input_left(type='text',value=snap.transform.left)
+				input#input_top(type='text',value=snap.transform.top)
 
 		div#adv
 script(type='text/javascript',src='/javascripts/copymsg.js')
+script(type='text/javascript')
+	var trans = {top:#{snap.transform.top}, left:#{snap.transform.left}};

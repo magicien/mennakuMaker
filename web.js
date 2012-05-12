@@ -19,8 +19,10 @@ var SnapSchema = new Schema({
 	imageURI: String,
 	message: String, 
 	cssstyle: String,
-	hoge: {
-		body: String
+	transform: {
+		left: Number,
+		top: Number,
+		rotate: Number
 	}
 });
 

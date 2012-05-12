@@ -1,10 +1,19 @@
 h1= title
 div= 'hogehoge'
 	form(method='POST', action='/snap/')
+		label= 'imageURI'
 		input(type='text', name='imageURI')
 		br
+		label= 'message'
 		input(type='text', name='message')
 		br
-		textarea(name='cssstyle')
+		label= 'left'
+		input(type='text', name='transleft')
+		br
+		label= 'top'
+		input(type='text', name='transtop')
+		br
+		label= 'rotate'
+		input(type='text', name='transrotate')
 		br
 		input(type='submit')

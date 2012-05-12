@@ -46,12 +46,7 @@ exports.newSnap = function(req, res){
 exports.createSnap = function(req, res){
 	var SnapSchema = mongoose.model('snap');
 	var snap = new SnapSchema();
-	//snap.imageURI = 'aaa.img';
-	snap.imageURI = req.body.imageURI;
-	//snap.message = 'ガイアが俺にかがやけ';
-	snap.message = req.body.message;
-	//snap.cssstyle= '{color:#fff;}';
-	snap.cssstyle = req.body.cssstyle;
+	snap = snapFromBody(snap, req);
 	snap.save(function(err){
 		if(!err){
 			res.json(snap);
@@ -66,9 +61,10 @@ exports.updateSnap = function(req, res){
 	SnapSchema.findById(req.params.id, function(err, snap){
 		if(!err){
 			if(snap){
-				snap.imageURI = req.body.imageURI;
-				snap.message = req.body.message;
-				snap.cssstyle = req.body.cssstyle;
+				//snap.imageURI = req.body.imageURI;
+				//snap.message = req.body.message;
+				//snap.cssstyle = req.body.cssstyle;
+				snap = snapFromBody(snap, req);
 				snap.save(function(err){
 					if(!err){
 						res.render('snap', {
@@ -86,4 +82,14 @@ exports.updateSnap = function(req, res){
 			res.send(err);
 		}
 	});
+};
+
+var snapFromBody =function(snap, req){
+	snap.imageURI = req.body.imageURI;
+	snap.message = req.body.message;
+	snap.transform = {};
+	snap.transform.left = req.body.transleft;
+	snap.transform.top= req.body.transtop;
+	snap.transform.rotate= req.body.transrotate;
+	return snap;
 };
