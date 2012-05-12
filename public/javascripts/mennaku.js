@@ -17,6 +17,7 @@ g.dragging
 
 *** functions ***
 init()             -- call when page is loaded.
+updateMessagePosition() -- update message position for updating css params
 calcMovableArea()  -- calc movable area of message
 adjustMessageTop() -- adjust position of message (subtract image height)
 adjustPosition()   -- adjust position of message (check bounds of image)
@@ -49,6 +50,11 @@ g.margin = 10;
 
       //g.info = document.getElementById("info");
       //showInfo();
+    }
+
+    function updateMessagePosition() {
+      calcMovableArea();
+      adjustPosition();
     }
 
     function calcMovableArea() {

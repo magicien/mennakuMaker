@@ -9,13 +9,13 @@ div#wrapper
 			span(id='ccopy')= snap.message
 	div#sidebar
 		div#sns
-			a(href="http://twitter.com/share?url=http%3A%2F%2Fmennakumaker.herokuapp.com%2Fsnap%2F" + snap._id + "&text=" + snap.message + "&counturl=http%3A%2F%2Fmennakumaker.herokuapp.com%2F&hashtags=mennakumaker")
+			a(href="javascript:(function(){window.open('http://twitter.com/share?url=http%3A%2F%2Fmennakumaker.herokuapp.com%2Fsnap%2F" + snap._id + "&text=" + snap.message + "&counturl=http%3A%2F%2Fmennakumaker.herokuapp.com%2F&hashtags=mennakumaker','_blank');})();")
 				img(src="/images/icons/20px/twitter.png")
-			a(href="http://www.facebook.com/share.php?u=http%3A%2F%2Fmennakumaker.herokuapp.com%2Fsnap%2F" + snap._id)
+			a(href="javascript:(function(){window.open('http://www.facebook.com/share.php?u=http%3A%2F%2Fmennakumaker.herokuapp.com%2Fsnap%2F" + snap._id + "','_blank');})();")
 				img(src="/images/icons/20px/facebook.png")
-			a(href="#")
+			a(href="javascript:(function(){window.open('https://plusone.google.com/_/+1/confirm?hl=ja&amp;url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title),'_blank');})();")
 				img(src="/images/icons/20px/google_plus.png")
-			a(href="#")
+			a(href="javascript:(function(){window.open('http://mixi.jp/share.pl?u=http%3A%2F%2Fmennakumaker.herokuapp.com%2Fsnap%2F" + snap._id + "&k=b34bf9c2f6f631cf3f7b67438c6ac62f166c4c8e','_blank');})();")
 				img(src="/images/icons/20px/mixi.png")
 		div#edit_area
 			h メッセージ編集
