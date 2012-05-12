@@ -12,7 +12,7 @@ div#wrapper
 						td= '伊達 ワルフェイス(画像URL)'
 						td= ':'
 						td
-							input(type='text', name='imageURI')
+							input#iamgeUri(type='text', name='imageURI')
 						td
 					tr
 						td= '伊達 ワルヴォイス(メッセージ)'
@@ -28,17 +28,9 @@ div#wrapper
 				input(type='hidden', name='decoFontSize', value='25')
 				input(type='hidden', name='decoColor', value='#fff')
 				input(type='hidden', name='decoShadowColor', value='red')
-				button
+				button#createBtn(disabled='disabled')
 					p='作る'
 	div#footer
 		p= '本サービスは本家メンズナックルとは何の関係もありません'
 		a(href='/')='http://mennakumaker.herokuapp.com/'
-script(type='text/javascript')
-	$(function(){
-		$('td#comment a').click(function(){
-			$.getJSON($(this).attr('href')).then(function(comment){
-				$('#message').val(comment.message);
-			});
-			return false;
-		});
-	});
+script(type='text/javascript', src='/javascripts/create.js')
