@@ -23,6 +23,16 @@ var SnapSchema = new Schema({
 		left: Number,
 		top: Number,
 		rotate: Number
+	},
+	decoration:{
+		fontSize:Number,
+		color: String,
+		textShadow:{
+			x:Number,
+			y:Number,
+			color:String,
+			blur:Number
+		}
 	}
 });
 

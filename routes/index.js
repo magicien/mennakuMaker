@@ -91,5 +91,13 @@ var snapFromBody =function(snap, req){
 	snap.transform.left = req.body.transleft;
 	snap.transform.top= req.body.transtop;
 	snap.transform.rotate= req.body.transrotate;
+	snap.decoration={};
+	snap.decoration.fontSize= req.body.decoFontSize;
+	snap.decoration.color= req.body.decoColor;
+	snap.decoration.textShadow={};
+	snap.decoration.textShadow.x=1;
+	snap.decoration.textShadow.y=1;
+	snap.decoration.textShadow.blur=10;
+	snap.decoration.textShadow.color=req.body.decoShadowColor;
 	return snap;
 };
