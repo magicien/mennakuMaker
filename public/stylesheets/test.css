@@ -30,6 +30,8 @@ div#wrapper {
     border-style: solid;
     border-color: #FFFFFF;
     border-width: 2px;
+
+    max-width: 480px;
 }
 
 div#main {
@@ -40,7 +42,7 @@ div#main {
 
 div#ccopyarea {
     float: left;
-    width: 600px;
+    width: 500px;
 }
 
 div#sidebar {
