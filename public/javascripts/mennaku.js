@@ -1,5 +1,6 @@
 var g = new Object();
 /*
+*** global variants ***
 g.ccopy
 g.image
 
@@ -12,6 +13,16 @@ g.minY
 g.maxX
 g.maxY
 g.dragging
+
+*** functions ***
+init()            -- call when page is loaded.
+calcMovableArea() -- calc movable area of message
+adjustPosition()  -- adjust position of message (subtract image height)
+
+dragstart(e)      -- Callback function of mousedown
+drag(e)           -- Callback function of mousemove
+dragend(e)        -- callback function of mouseup
+showInfo()        -- for debug
 */
 g.margin = 10;
 
@@ -32,8 +43,13 @@ g.margin = 10;
       document.addEventListener("mousemove",drag, false);
       document.addEventListener("mouseup", dragend, true);
 
-      //g.info = document.getElementById("info");
+      calcMovableArea();
 
+      //g.info = document.getElementById("info");
+      //showInfo();
+    }
+
+    function calcMovableArea() {
       // get ccopy style
       var transform = g.ccopy.style["-webkit-transform"];
       var rotateStr = transform.match(/rotate\((-?[0-9]+)deg\)/);
@@ -71,8 +87,6 @@ g.margin = 10;
       }
       g.minY = -g.image.offsetHeight;
       g.maxY = g.minY + g.image.offsetHeight - ccopyHeight + dy - g.margin;
-
-      //showInfo();
     }
 
     function adjustPosition() {
