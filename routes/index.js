@@ -2,7 +2,9 @@ var mongoose = require('mongoose');
 
 exports.index = function(req, res){
 	var SnapSchema = mongoose.model('snap');
-	SnapSchema.find({}, function(err, snaps){
+	var query = SnapSchema.find({});
+	query.limit(3);
+	query.exec(function(err, snaps){
 		if(!err){
 			res.render('index', {
 				title: 'MEN\'S KUNECKLE MAKER',
