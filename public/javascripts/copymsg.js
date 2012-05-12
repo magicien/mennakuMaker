@@ -75,19 +75,21 @@ $('#copymsg').keypress(function(e){
 	});
 	*/
 
- $('#update').click(updateSnap);
+	$('#update').click(updateSnap);
 
 });
-
 var updateSnap = function(){
 	$.ajax({
 		type:'PUT',
 		url:location.href,
 		data:{
-			message:$('#copymsg').val(),
-			transleft: x,
-			transrotate: degree
+			message: $('#copymsg').val(),
+			transleft: $('#input_left').val(),
+			transtop: $('#input_top').val(),
+			transrotate: $('#input_rotate').val(),
+			decoFontSize: $('#input_size').val(),
+			decoColor: $('#color1 div.inner').css('backgroundColor'),
+			decoShadowColor: $('#color2 div.inner').css('backgroundColor')
 		}
 	}).then();
 };
-
