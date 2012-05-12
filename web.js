@@ -15,6 +15,14 @@ var CommentSchema = new Schema({
 	age: String
 });
 
+var SnapSchema = new Schema({
+	imageURI: String,
+	message: {
+		body: String,
+		Style: String
+	}
+});
+
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
@@ -29,6 +37,9 @@ app.configure(function(){
 app.get('/', function(request, response) {
 	response.send('Hello World!!');
 });
+app.get('/snap', function(req, res){});
+app.post('/snap', function(req, res){});
+app.get('/snap/:id', function(req, res){});
 app.get('/sample', function(req, res){
 	res.render('sample', {
 		title: 'jade sample',
