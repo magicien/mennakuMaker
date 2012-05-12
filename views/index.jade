@@ -1,0 +1,13 @@
+div#wrapper
+	div#header
+		div#title
+			h1= title
+	div#cover
+		ul
+			each snap in snaps
+				li
+					a(href='/snap/'+snap._id)
+						p= 'hogehoge'
+						div 
+							img.sumbnail(src=snap.imageURI)
+	

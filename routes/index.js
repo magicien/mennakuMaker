@@ -1,5 +1,19 @@
 var mongoose = require('mongoose');
 
+exports.index = function(req, res){
+	var SnapSchema = mongoose.model('snap');
+	SnapSchema.find({}, function(err, snaps){
+		if(!err){
+			res.render('index', {
+				title: 'MEN\'S KUNECKLE MAKER',
+				snaps:snaps
+			});
+		}else{
+			res.send(err);
+		}
+	});
+};
+
 exports.getCommentRandam = function(req, res){
 	var CommentSchema = mongoose.model('comment');
 	CommentSchema.count({}, function(err, count){
@@ -49,7 +63,8 @@ exports.createSnap = function(req, res){
 	snap = snapFromBody(snap, req);
 	snap.save(function(err){
 		if(!err){
-			res.json(snap);
+			//res.json(snap);
+			res.redirect('/snap/' + snap.id);
 		}else{
 			res.send(err);
 		}
