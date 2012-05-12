@@ -1,30 +1,44 @@
-h1= title
-	a(href= '/')
-		img(src='/images/logo.png')
-div= 'hogehoge'
-	form(method='POST', action='/snap/')
-		label= 'imageURI'
-		input(type='text', name='imageURI')
-		br
-		label= 'message'
-		input(type='text', name='message')
-		br
-		label= 'left'
-		input(type='text', name='transleft')
-		br
-		label= 'top'
-		input(type='text', name='transtop')
-		br
-		label= 'rotate'
-		input(type='text', name='transrotate')
-		br
-		label= 'fontSize'
-		input(type='text', name='decoFontSize')
-		br
-		label= 'color'
-		input(type='text', name='decoColor')
-		br
-		label= 'shadowColor'
-		input(type='text', name='decoShadowColor')
-		br
-		input(type='submit')
+div#wrapper
+	div#header
+		div#title
+			a(href= '/')
+				img(src='/images/logo.png')
+	div#create
+		h2= '新しい伊達ワル'
+		div#frmWrap
+			form(method='POST', action='/snap/')
+				table
+					tr
+						td= '伊達 ワルフェイス(画像URL)'
+						td= ':'
+						td
+							input(type='text', name='imageURI')
+						td
+					tr
+						td= '伊達 ワルヴォイス(メッセージ)'
+						td= ':'
+						td
+							input#message(type='text', name='message')
+						td#comment
+							a(href='/comment/random')
+								span.guide= 'ランダム' 
+				input(type='hidden', name='transleft', value='0')
+				input(type='hidden', name='transtop', value='0')
+				input(type='hidden', name='transrotate', value='4')
+				input(type='hidden', name='decoFontSize', value='25')
+				input(type='hidden', name='decoColor', value='#fff')
+				input(type='hidden', name='decoShadowColor', value='red')
+				button
+					p='作る'
+	div#footer
+		p= '本サービスは本家メンズナックルとは何の関係もありません'
+		a(href='/')='http://mennakumaker.herokuapp.com/'
+script(type='text/javascript')
+	$(function(){
+		$('td#comment a').click(function(){
+			$.getJSON($(this).attr('href')).then(function(comment){
+				$('#message').val(comment.message);
+			});
+			return false;
+		});
+	});

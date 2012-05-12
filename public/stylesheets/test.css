@@ -166,6 +166,30 @@ div#footer{
 	color:#ddd;
 }
 
+div#create{
+	margin:3px;
+	padding:20px;
+	width:730px;
+	background-color:#222;
+	border-radius:10px;
+}
+
+div#frmWrap{
+	margin:10px;
+}
+
+div#create input{
+	width:300px;
+}
+
+div#create span.guide{
+	font-size:12px;
+}
+
+div#create td{
+	padding:3px;
+}
+
 a, a:visited{
 	color:#666;
 }
