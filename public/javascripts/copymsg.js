@@ -17,9 +17,9 @@ $('#copymsg').keypress(function(e){
 	$('#ccopy').css('left', trans.left+200+'px');
 	$('#ccopy').css('top', trans.top-600+'px');
 	$('#ccopy').css('fontSize', decoration.fontSize+'px');
-	$('#ccopy').css('fontColor', '#'+decoration.color);
+	$('#ccopy').css('color', decoration.color);
 	$('#ccopy').css('text-shadow', 
-			decoration.textShadow.x+'px '+decoration.textShadow.y+'px '+decoration.textShadow.blur+'px #'+decoration.textShadow.color);
+			parseInt(decoration.textShadow.x)+'px '+parseInt(decoration.textShadow.y)+'px '+parseInt(decoration.textShadow.blur)+'px '+decoration.textShadow.color);
 	$('#ccopy').css('-webkit-writing-mode', 'vertical-rl');
 	$('#ccopy').css('-webkit-transform', 'rotate\('+$('#input_rotate').val()+'deg\)');
 
