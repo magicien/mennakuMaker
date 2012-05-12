@@ -75,5 +75,19 @@ $('#copymsg').keypress(function(e){
 	});
 	*/
 
+ $('#update').click(updateSnap);
+
 });
+
+var updateSnap = function(){
+	$.ajax({
+		type:'PUT',
+		url:location.href,
+		data:{
+			message:$('#copymsg').val(),
+			transleft: x,
+			transrotate: degree
+		}
+	}).then();
+};
 

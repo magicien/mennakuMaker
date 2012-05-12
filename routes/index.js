@@ -72,7 +72,7 @@ exports.createSnap = function(req, res){
 	});
 };
 
-exports.updateSnap = function(req, res){
+exports.updateById= function(req, res){
 	var SnapSchema = mongoose.model('snap');
 	SnapSchema.findById(req.params.id, function(err, snap){
 		if(!err){
@@ -101,19 +101,19 @@ exports.updateSnap = function(req, res){
 };
 
 var snapFromBody =function(snap, req){
-	snap.imageURI = req.body.imageURI;
-	snap.message = req.body.message;
+	if(req.body.imageURI) snap.imageURI = req.body.imageURI;
+	if(req.body.message) snap.message = req.body.message;
 	snap.transform = {};
-	snap.transform.left = req.body.transleft;
-	snap.transform.top= req.body.transtop;
+	if(req.body.transleft) snap.transform.left = req.body.transleft;
+	if(req.body.transtop) snap.transform.top= req.body.transtop;
 	snap.transform.rotate= req.body.transrotate;
 	snap.decoration={};
-	snap.decoration.fontSize= req.body.decoFontSize;
-	snap.decoration.color= req.body.decoColor;
+	if(req.body.decoFontSize) snap.decoration.fontSize= req.body.decoFontSize;
+	if(req.body.decoColor) snap.decoration.color= req.body.decoColor;
 	snap.decoration.textShadow={};
 	snap.decoration.textShadow.x=1;
 	snap.decoration.textShadow.y=1;
 	snap.decoration.textShadow.blur=10;
-	snap.decoration.textShadow.color=req.body.decoShadowColor;
+	if(req.body.decoShadowColor) snap.decoration.textShadow.color=req.body.decoShadowColor;
 	return snap;
 };

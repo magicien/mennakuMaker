@@ -17,7 +17,7 @@ div#wrapper
 				img(src="/images/icons/20px/google_plus.png")
 			a(href="javascript:(function(){window.open('http://mixi.jp/share.pl?u=http%3A%2F%2Fmennakumaker.herokuapp.com%2Fsnap%2F" + snap._id + "&k=b34bf9c2f6f631cf3f7b67438c6ac62f166c4c8e','_blank');})();")
 				img(src="/images/icons/20px/mixi.png")
-		div#edit_area
+		div#edit_area.box
 			h メッセージ編集
 			ul
 				li キャッチコピー: 
@@ -35,6 +35,7 @@ div#wrapper
 				input#input_rotate(type='range',value=snap.transform.rotate,min='-50',max='50')
 				input#input_left(type='hidden',value=snap.transform.left)
 				input#input_top(type='hidden',value=snap.transform.top)
+				button#update='update'
 
 	div#footer
 		p= '本サービスは本家メンズナックルとは何の関係もないです'
