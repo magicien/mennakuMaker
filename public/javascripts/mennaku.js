@@ -25,7 +25,6 @@ g.margin = 10;
       var styleTop  = trans.top  | 0;
       g.ccopy.style.left = styleLeft + "px";
       g.ccopy.style.top  = styleTop + "px";
-      alert(g.ccopy.style.left + "," + g.ccopy.style.top);
       adjustPosition();
 
       // add drag event listener
