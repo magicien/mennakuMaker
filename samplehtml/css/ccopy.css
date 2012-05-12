@@ -1,0 +1,15 @@
+span#ccopy {
+    position: relative;
+    left: 300px;
+    top: -620px;
+
+    text-shadow: 1px 1px 10px #FFA000;
+    font-size: 25px;    
+    font-color: #AAAAAA;
+    font-weight: bold;
+    -moz-writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
+
+    -webkit-transform: rotate(10deg) translate(-10px,0px);
+
+}
