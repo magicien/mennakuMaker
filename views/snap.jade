@@ -1,5 +1,18 @@
-h1= title
-div
-	img(src= snap.imageURI)
-	p(style= snap.cssstyle)= snap.message
+div#wrapper
+	div#header
+		div#title
+			h1= title
+	div#main
+		img(src= snap.imageURI)
+		div#ccopyarea
+			span(style= snap.cssstyle)= snap.message
+	div#sidebar
+		div#sns
+			input(type='button', value='tw')
+			input(type='button', value='fb')
+			input(type='button', value='G+')
+			input(type='button', value='mi')
+		div#create_area
+			div#create_button
+		div#adv
 
