@@ -48,9 +48,7 @@ app.configure(function(){
 	mongoose.model('snap', SnapSchema);
 });
 
-app.get('/', function(request, response) {
-	response.send('Hello World!!');
-});
+app.get('/', routes.index);
 app.get('/snap', routes.newSnap);
 app.post('/snap', routes.createSnap);
 app.get('/snap/:id', routes.getSnapById);
