@@ -12,17 +12,19 @@ g.minX
 g.minY
 g.maxX
 g.maxY
+g.margin
 g.dragging
 
 *** functions ***
-init()            -- call when page is loaded.
-calcMovableArea() -- calc movable area of message
-adjustPosition()  -- adjust position of message (subtract image height)
+init()             -- call when page is loaded.
+calcMovableArea()  -- calc movable area of message
+adjustMessageTop() -- adjust position of message (subtract image height)
+adjustPosition()   -- adjust position of message (check bounds of image)
 
-dragstart(e)      -- Callback function of mousedown
-drag(e)           -- Callback function of mousemove
-dragend(e)        -- callback function of mouseup
-showInfo()        -- for debug
+dragstart(e)       -- Callback function of mousedown
+drag(e)            -- Callback function of mousemove
+dragend(e)         -- callback function of mouseup
+showInfo()         -- for debug
 */
 g.margin = 10;
 
@@ -36,7 +38,7 @@ g.margin = 10;
       var styleTop  = trans.top  | 0;
       g.ccopy.style.left = styleLeft + "px";
       g.ccopy.style.top  = styleTop + "px";
-      adjustPosition();
+      adjustMessageTop();
 
       // add drag event listener
       g.ccopy.addEventListener("mousedown", dragstart, false);
@@ -64,9 +66,12 @@ g.margin = 10;
       var dx = 0;
       var dy = 0;
       if(rotateStr){
-        rot = Math.PI * rotateStr[1] / 180.0;
-        dx = ccopyHeight * Math.sin(Math.PI * rotateStr[1] / 180.0);
-        dy = ccopyHeight * (1.0 - Math.cos(Math.PI * rotateStr[1] / 180.0));
+        var angle1 = Math.atan(ccopyWidth / ccopyHeight);
+        var angle2 = Math.PI * rotateStr[1] / 180.0;
+	var rot = angle1 + angle2;
+        var r = Math.sqrt(ccopyHeight * ccopyHeight + ccopyWidth * ccopyWidth) * 0.5;
+	dx = Math.abs(r * Math.sin(rot) - ccopyWidth  * 0.5);
+	dy = Math.abs(r * Math.cos(rot) - ccopyHeight * 0.5);
       }
       if(translateXY){
         var tx = parseInt(translateXY[1]);
@@ -76,20 +81,38 @@ g.margin = 10;
       }
 
       var agent = navigator.userAgent;
-      if(agent.match(/Chrome/)){
-        g.minX = dx;
-        //minY = 0;
-        g.maxX = g.image.offsetWidth  - ccopyWidth - g.margin;
-      }else if(agent.match(/Safari/)){
-        g.minX = g.margin;
-        //minY = 0;
-        g.maxX = g.image.offsetWidth  - ccopyWidth - dx;
-      }
-      g.minY = -g.image.offsetHeight;
-      g.maxY = g.minY + g.image.offsetHeight - ccopyHeight + dy - g.margin;
+      g.minX = dx + g.margin;
+      g.maxX = g.image.offsetWidth - ccopyWidth - dx - g.margin;
+      g.minY = -g.image.offsetHeight - dy + g.margin;
+      g.maxY = -ccopyHeight + dy - g.margin;
     }
 
     function adjustPosition() {
+      var nowLeft = trans.left;
+      var nowTop  = trans.top - g.image.offsetHeight;
+
+      if(nowLeft < g.minX)
+        nowLeft = g.minX;
+      
+      if(nowLeft > g.maxX)
+        nowLeft = g.maxX;
+
+      if(nowTop < g.minY)
+        nowTop = g.minY;
+
+      if(nowTop > g.maxY)
+        nowTop = g.maxY;
+
+      g.ccopy.style.left = nowLeft + "px";
+      g.ccopy.style.top = nowTop + "px";
+
+      trans.left = nowLeft;
+      trans.top  = nowTop + g.image.offsetHeight;
+      document.getElementById("input_left").value = trans.left;
+      document.getElementById("input_top").value  = trans.top;
+    }
+
+    function adjustMessageTop() {
       if(!g.image){
         g.image = document.getElementById("img");
         g.ccopy = document.getElementById("ccopy");
@@ -120,25 +143,10 @@ g.margin = 10;
       var nowLeft = g.startLeft + (nowMouseX - g.startMouseX);
       var nowTop = g.startTop + (nowMouseY - g.startMouseY);
 
-      if(nowLeft < g.minX)
-        nowLeft = g.minX;
-      
-      if(nowLeft > g.maxX)
-        nowLeft = g.maxX;
-
-      if(nowTop < g.minY)
-        nowTop = g.minY;
-
-      if(nowTop > g.maxY)
-        nowTop = g.maxY;
-
-      g.ccopy.style.left = nowLeft + "px";
-      g.ccopy.style.top = nowTop + "px";
-
       trans.left = nowLeft;
       trans.top  = nowTop + g.image.offsetHeight;
-      document.getElementById("input_left").value = trans.left;
-      document.getElementById("input_top").value  = trans.top;
+
+      adjustPosition();
 
       //showInfo();
 
