@@ -11,6 +11,16 @@ div#title {
     -webkit-box-reflect: below -20px -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0) 50%,rgba(0,0,0,0.5));
 }
 
+div#title h1{
+	font-size: 40px;
+}
+
+h2{
+	margin:0px;
+	font-size: 30px;
+	margin-bottom:10px;
+}
+
 div#wrapper {
     margin: 0 auto;
     width: 800px;
@@ -58,6 +68,7 @@ div#edit_area {
 
     padding: 10px;
     text-align: left;
+
 }
 
 /*
@@ -81,10 +92,58 @@ div.cselector div.inner{
 	height:100%;
 }
 
+div#top{
+	background-color:#222;
+	padding:15px;
+	border-radius:10px;
+}
+
 div#cover{
+	display:-webkit-box;
+	display:-moz-box;
+}
+
+
+div#left{
+	margin-right:10px;
+}
+
+div#first{
+	-webkit-transform: rotate(5deg);
+	max-width:520px;
+	max-height:520px;
+	margin:10px;
+}
+div#second{
+	-webkit-transform: rotate(-3deg);
+	max-width:320px;
+	max-height:320px;
+	margin:10px;
+}
+div#third{
+	-webkit-transform: rotate(2deg);
+	max-width:320px;
+	max-height:220px;
+	margin:10px;
 }
 
 div#cover img.sumbnail{
-	max-width: 100px;
-	max-height: 100px;
+	border:10px #fff solid;
+	-webkit-box-shadow: 1px 1px 10px #000;　/* Safari,Google Chrome用 */  
+}
+
+div#cover div#first img.sumbnail{
+	max-width: 500px;
+	max-height: 500px;
+}
+div#cover div#second img.sumbnail{
+	max-width: 300px;
+	max-height: 300px;
+}
+div#cover div#third img.sumbnail{
+	max-width: 300px;
+	max-height: 200px;
+}
+div#subcontents{
+	float:left;
 }

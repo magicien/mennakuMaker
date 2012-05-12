@@ -1,13 +1,28 @@
 div#wrapper
 	div#header
 		div#title
-			h1= title
-	div#cover
-		ul
-			each snap in snaps
-				li
-					a(href='/snap/'+snap._id)
-						p= 'hogehoge'
-						div 
-							img.sumbnail(src=snap.imageURI)
-	
+			a(href= '/')
+				img(src='/images/logo.png')
+		div#contents
+			div#top
+				h2= '今日の伊達ワルな奴ら'
+				div#cover
+					div.left
+						div#first
+							a(href='/snap/'+snaps[0]._id)
+								div 
+									img.sumbnail(src=snaps[0].imageURI)
+					div.right
+						div#second
+							a(href='/snap/'+snaps[1]._id)
+								div 
+									img.sumbnail(src=snaps[1].imageURI)
+						div#third
+							a(href='/snap/'+snaps[2]._id)
+								div 
+									img.sumbnail(src=snaps[2].imageURI)
+		div#subcontents
+			div#comment.box
+				p= '伊達ワルな一言を聞く'
+	div#footer
+		p= '本サービスは本家メンズナックルとは何の関係もないです'
