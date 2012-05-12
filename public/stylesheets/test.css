@@ -47,14 +47,15 @@ div#create_area {
     padding: 5px;
 }
 
-div#create_button {
+div#edit_area {
     widht: 250px;
-    height: 100px;
+    height: 500px;
     border-style: solid;
     border- color: #FFFFFF;
     border-width: 2px;
 
-    text-align: center;
+    padding: 10px;
+    text-align: left;
 }
 
 /*
