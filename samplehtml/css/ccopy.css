@@ -9,12 +9,15 @@ span#ccopy {
     */
 
 	position: relative;
-	left: 100px;
-	top: -500px;
+	left: 260px;
+	top: -620px;
 
-    text-shadow: 1px 1px 10px #FFA000;
+	/*
+    text-shadow: 1px 1px 2px #333333, 2px 2px 7px #000000,-2px -2px 7px #000000;
+    */
+	color: #FFA000;
+	text-shadow:0px 4px 1px red,0px 3px 1px red,1px 3px 1px red,2px 3px 1px red,2px 2px 1px red,3px 2px 1px red,3px 1px 1px red,3px 0px 1px red,4px 0px 1px red,3px -1px 1px red,3px -2px 1px red,3px -3px 1px red,2px -3px 1px red,2px -4px 1px red,1px -4px 1px red,0px -4px 1px red,-1px -4px 1px red,-2px -4px 1px red,-3px -4px 1px red,-3px -3px 1px red,-4px -3px 1px red,-4px -2px 1px red,-4px -1px 1px red,-4px 0px 1px red,-4px 1px 1px red,-4px 2px 1px red,-3px 2px 1px red,-3px 3px 1px red,-2px 3px 1px red,-1px 3px 1px red;
     font-size: 25px;    
-    font-color: #AAAAAA;
     font-weight: bold;
     -moz-writing-mode: vertical-rl;
     -webkit-writing-mode: vertical-rl;
