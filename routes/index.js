@@ -46,12 +46,12 @@ exports.newSnap = function(req, res){
 exports.createSnap = function(req, res){
 	var SnapSchema = mongoose.model('snap');
 	var snap = new SnapSchema();
-	snap.imageURI = 'aaa.img';
-	//snap.imageURI = req.body.imageURI;
-	snap.message = 'ガイアが俺にかがやけ';
-	//snap.message = req.body.message;
-	snap.cssstyle= '{color:#fff;}';
-	//snap.cssstyle = req.body.cssstyle;
+	//snap.imageURI = 'aaa.img';
+	snap.imageURI = req.body.imageURI;
+	//snap.message = 'ガイアが俺にかがやけ';
+	snap.message = req.body.message;
+	//snap.cssstyle= '{color:#fff;}';
+	snap.cssstyle = req.body.cssstyle;
 	snap.save(function(err){
 		if(!err){
 			res.json(snap);
