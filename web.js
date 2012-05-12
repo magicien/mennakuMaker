@@ -18,7 +18,10 @@ var CommentSchema = new Schema({
 var SnapSchema = new Schema({
 	imageURI: String,
 	message: String, 
-	cssstyle: String
+	cssstyle: String,
+	hoge: {
+		body: String
+	}
 });
 
 app.configure(function(){
@@ -30,7 +33,7 @@ app.configure(function(){
   app.use(express.static(__dirname + '/public'));
 	mongoose.connect(mongoUri);
 	mongoose.model('comment', CommentSchema);
-	mongoose.model('snap', CommentSchema);
+	mongoose.model('snap', SnapSchema);
 });
 
 app.get('/', function(request, response) {
