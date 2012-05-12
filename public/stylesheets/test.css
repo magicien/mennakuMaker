@@ -92,10 +92,16 @@ div.cselector div.inner{
 	height:100%;
 }
 
+div#twin{
+	display:-webkit-box;
+	width:100px;
+}
+
 div#top{
 	background-color:#222;
 	padding:15px;
 	border-radius:10px;
+	margin:3px;
 }
 
 div#cover{
@@ -144,6 +150,22 @@ div#cover div#third img.sumbnail{
 	max-width: 300px;
 	max-height: 200px;
 }
-div#subcontents{
-	float:left;
+
+div#subcontents div.box{
+	margin:3px;
+	background-color:#222;
+	width:150px;
+	height:150px;
+	border-radius:10px;
+	padding:10px;
+}
+
+div#footer{
+	text-align:center;
+	font-size:12px;
+	color:#ddd;
+}
+
+a, a:visited{
+	color:#666;
 }
