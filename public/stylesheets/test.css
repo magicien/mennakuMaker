@@ -151,10 +151,10 @@ div#cover div#third img.sumbnail{
 div#subcontents div.box{
 	margin:3px;
 	background-color:#222;
-	width:150px;
-	height:150px;
+	width:200px;
+	height:200px;
 	border-radius:10px;
-	padding:10px;
+	padding:0px;
 }
 
 div#sidebar div.box{
