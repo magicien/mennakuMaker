@@ -60,3 +60,30 @@ exports.createSnap = function(req, res){
 		}
 	});
 };
+
+exports.updateSnap = function(req, res){
+	var SnapSchema = mongoose.model('snap');
+	SnapSchema.findById(req.params.id, function(err, snap){
+		if(!err){
+			if(snap){
+				snap.imageURI = req.body.imageURI;
+				snap.message = req.body.message;
+				snap.cssstyle = req.body.cssstyle;
+				snap.save(function(err){
+					if(!err){
+						res.render('snap', {
+							title: 'MEN\'S KUNECKLE MAKER',
+							snap: snap
+						});
+					}else{
+						res.send(err);
+					}
+				});
+			}else{
+				res.send(404);
+			}
+		}else{
+			res.send(err);
+		}
+	});
+};

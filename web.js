@@ -42,6 +42,7 @@ app.get('/', function(request, response) {
 app.get('/snap', routes.newSnap);
 app.post('/snap', routes.createSnap);
 app.get('/snap/:id', routes.getSnapById);
+app.put('/snap/:id', routes.updateById);
 app.get('/sample', function(req, res){
 	res.render('sample', {
 		title: 'jade sample',
