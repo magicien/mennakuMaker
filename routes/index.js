@@ -72,7 +72,7 @@ exports.createSnap = function(req, res){
 	});
 };
 
-exports.updateSnap = function(req, res){
+exports.updateById= function(req, res){
 	var SnapSchema = mongoose.model('snap');
 	SnapSchema.findById(req.params.id, function(err, snap){
 		if(!err){
