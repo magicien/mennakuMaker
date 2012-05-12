@@ -7,7 +7,7 @@ exports.index = function(req, res){
 	query.exec(function(err, snaps){
 		if(!err){
 			res.render('index', {
-				title: 'MEN\'S KUNECKLE MAKER',
+				title: 'MEN\'S KNUCKLE MAKER',
 				snaps:snaps
 			});
 		}else{
