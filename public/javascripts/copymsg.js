@@ -2,12 +2,14 @@ $(function() {
 
 $('#copymsg').blur(function(){
 	$('#ccopy').html($('#copymsg').val());
+	calcMovableArea();
 });
 
 
 $('#copymsg').keypress(function(e){
 	if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
 		$('#ccopy').html($('#copymsg').val());
+		calcMovableArea();
 	}
 });
 
@@ -23,18 +25,22 @@ $('#copymsg').keypress(function(e){
 
 	$('#input_left').blur(function(){
 		$('#ccopy').css('left', parseInt($('#input_left').val())+200+'px');
+		calcMovableArea();
 	});
 
 	$('#input_top').blur(function(){
 		$('#ccopy').css('top', parseInt($('#input_top').val())-600+'px');
+		calcMovableArea();
 	});
 	
 	$('#input_size').change(function(){
 		$('#ccopy').css('fontSize',parseInt($('#input_size').val())+'px');
+		calcMovableArea();
 	});
 
 	$('#input_rotate').change(function(){
 		$('#ccopy').css('-webkit-transform','rotate\('+$('#input_rotate').val()+'deg\)');
+		calcMovableArea();
 	});
 
 });

@@ -3,16 +3,19 @@ div#wrapper
 		div#title
 			h1= title
 	div#main
-		img(src= snap.imageURI)
+		img#img(src= snap.imageURI)
 		div#ccopyarea
 			span(id='ccopy')= snap.message
 	div#sidebar
 		div#sns
 			a(href="http://twitter.com/share?url=http%3A%2F%2Fmennakumaker.herokuapp.com%2Fsnap%2F" + snap._id + "&text=" + snap.message + "&counturl=http%3A%2F%2Fmennakumaker.herokuapp.com%2F&hashtags=mennakumaker")
-				img(src="/images/icons/32px/twitter.png")
-			input(type='button', value='fb')
-			input(type='button', value='G+')
-			input(type='button', value='mi')
+				img(src="/images/icons/20px/twitter.png")
+			a(href="http://www.facebook.com/share.php?u=http%3A%2F%2Fmennakumaker.herokuapp.com%2Fsnap%2F" + snap._id)
+				img(src="/images/icons/20px/facebook.png")
+			a(href="#")
+				img(src="/images/icons/20px/google_plus.png")
+			a(href="#")
+				img(src="/images/icons/20px/mixi.png")
 		div#edit_area
 			h 画像 
 			br
@@ -48,3 +51,6 @@ script(type='text/javascript')
 			color:'#{snap.decoration.textShadow.color}'
 		}
 	};
+
+	window.addEventListener("load", init, true);
+
