@@ -34,11 +34,15 @@ div#wrapper
 	div#footer
 		p= '本サービスは本家メンズナックルとは何の関係もありません'
 		a(href='/')='http://mennakumaker.herokuapp.com/'
+div#commentDialog(style='diaply:none;', title='伊達ワル名言')
+	p= ''
+script(type='text/javascript', src='/javascripts/jquery-ui.js')
 script(type='text/javascript')
 	$(function(){
+		$('div#commentDialog').dialog({modal:true, autoOpen:false});
 		$('div#comment a').click(function(){
 			$.getJSON($(this).attr('href')).then(function(comment){
-				alert(comment.message);
+				$('div#commentDialog').find('p').text(comment.message).end().dialog('open');
 			});
 			return false;
 		});
