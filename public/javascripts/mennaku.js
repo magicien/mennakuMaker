@@ -19,8 +19,10 @@ g.dragging
 init()             -- call when page is loaded.
 updateMessagePosition() -- update message position for updating css params
 calcMovableArea()  -- calc movable area of message
-adjustMessageTop() -- adjust position of message (subtract image height)
 adjustPosition()   -- adjust position of message (check bounds of image)
+adjustMessageTop() -- adjust position of message (subtract image height)
+autoAddBreakLine() -- if message size is larger than image, add break-line automatically
+checkBrPosition(delimiter) -- check br position
 
 dragstart(e)       -- Callback function of mousedown
 drag(e)            -- Callback function of mousemove
@@ -33,6 +35,8 @@ g.margin = 10;
       // get image and ccopy(catch-copy) elements
       g.image = document.getElementById("img");
       g.ccopy = document.getElementById("ccopy");
+
+      autoAddBreakLine();
 
       // set ccopy position
       var styleLeft = trans.left | 0;
@@ -50,6 +54,62 @@ g.margin = 10;
 
       //g.info = document.getElementById("info");
       //showInfo();
+    }
+
+    function autoAddBreakLine() {
+      g.ccopy.style.position="absolute";
+      var imageHeight = g.image.offsetHeight;
+      var ccopyHeight = g.ccopy.offsetHeight;
+      g.ccopy.style.position="relative";
+
+      if(imageHeight < ccopyHeight){
+        var brPos = checkBrPosition(/。|、/);
+	if(brPos > 0){
+	  var org = g.ccopy.innerHTML;
+	  var message = org.substr(0, brPos) + "<br />" + org.substr(brPos);
+	  g.ccopy.innerHTML = message;
+	}else{
+	  brPos = checkBrPosition(/[あ-ン][^あ-ン]/);
+	  if(brPos > 0){
+	    var org = g.ccopy.innerHTML;
+	    var message = org.substr(0, brPos) + "<br />" + org.substr(brPos);
+	    g.ccopy.innerHTML = message;
+    	  }else{
+	    brPos = checkBrPosition(/./);
+	    if(brPos > 0){
+	      var org = g.ccopy.innerHTML;
+	      var message = org.substr(0, brPos) + "<br />" + org.substr(brPos);
+	      g.ccopy.innerHTML = message;
+	    }
+	  }
+	}
+	document.getElementById("copymsg").value = g.ccopy.innerHTML = message;
+      }
+    }
+
+    function checkBrPosition(delimiter) {
+	var brPos = -1;
+	var message = g.ccopy.innerHTML;
+	var strlen = message.length;
+	var minPoint = 1000;
+	var newIndex = 0;
+        
+	var index = message.search(delimiter);
+	while(index >= 0){
+	  var point = Math.abs((strlen - (newIndex + index) - 1) - ((newIndex + index) + 1));
+
+	  newIndex += index + 1;
+	  if(point < minPoint){
+	    brPos = newIndex;
+	    minPoint = point;
+	  }
+	  //index = message.indexOf(delimiter, index + 1);
+          
+	  message = message.substr(index + 1);
+	  index = message.search(delimiter);
+	}
+
+        return brPos;
     }
 
     function updateMessagePosition() {
