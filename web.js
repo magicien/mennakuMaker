@@ -5,6 +5,7 @@ var routes = require('./routes');
 var app = express.createServer(express.logger());
 
 var mongoUri = process.env.MONGOHQ_URL || 'mongodb://localhost/mennakudb';
+console.log(mongoUri);
 var port = process.env.PORT || 3000;
 
 var Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
