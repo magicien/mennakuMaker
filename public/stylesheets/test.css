@@ -192,10 +192,19 @@ div#create span.guide{
 	font-size:12px;
 }
 
+div#create tr{
+	height:80px
+}
+
 div#create td{
 	padding:3px;
 }
 
 a, a:visited{
 	color:#666;
+}
+
+img#sumbnail{
+	max-width:80px;
+	max-height:80px;
 }

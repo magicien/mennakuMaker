@@ -7,18 +7,22 @@ $(function(){
 		});
 		return false;
 	});
-	$('#message, #imageURI').bind('change',function(){
+	$('#message, #imageUri').bind('change',function(){
 		var enable = false;
 		if($('#imageUri').val() === '' || $('#message').val() === ''){
 			enable=false;
 		}else{
 			enable=true;
 		}
+		$('#sumbnail').attr('src', $('#imageUri').val()).bind('load', function(){
+			console.log('load');
+		});
 		if(enable){
 			$('#createBtn').removeAttr('disabled');
 		}else{
 			$('#createBtn').attr('disabled', 'disabled');
 		}
+	
 	});
 });
 
