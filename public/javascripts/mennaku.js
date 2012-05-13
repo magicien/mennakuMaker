@@ -113,6 +113,7 @@ g.margin = 10;
     }
 
     function updateMessagePosition() {
+      autoAddBreakLine();
       calcMovableArea();
       adjustPosition();
     }
