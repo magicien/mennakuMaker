@@ -15,6 +15,21 @@ exports.index = function(req, res){
 	});
 };
 
+exports.getList = function(req, res){
+	var SnapSchema = mongoose.model('snap');
+	var query = SnapSchema.find({});
+	query.asc('ts').exec(function(err, snaps){
+		if(!err){
+			res.render('list', {
+				title: 'MEN\'S KNUCKLE MAKER',
+				snaps:snaps
+			});
+		}else{
+			res.send(err);
+		}
+	});
+};
+
 exports.getCommentRandam = function(req, res){
 	var CommentSchema = mongoose.model('comment');
 	CommentSchema.count({}, function(err, count){
@@ -35,7 +50,6 @@ exports.getCommentRandam = function(req, res){
 
 exports.getSnapById = function(req, res){
 	var SnapSchema = mongoose.model('snap');
-	console.log(req.params.id);
 	SnapSchema.findById(req.params.id, function(err, snap){
 		if(!err){
 			if(snap){

@@ -1,0 +1,36 @@
+div#wrapper
+	div#header
+		div#title
+			a(href= '/')
+				img(src='/images/logo.png')
+		div#twin
+			div#contents
+				div#top
+					h2= '伊達ワルMEN'
+					div#list
+						each snap in snaps
+							a(href= '/snap/' + snap._id)
+								img.sumb2(src=snap.imageURI)
+			div#subcontents
+				div.box
+					a(href='/snap/')
+						img(src='/images/editors_room.png', alt='伊達ワルエディタ')
+				div#comment.box
+					a(href='/comment/random')
+						img(src='/images/pickup_message.png', alt='伊達ワルな一言')
+	div#footer
+		p= '本サービスは本家メンズナックルとは何の関係もありません'
+		a(href='/')='http://mennakumaker.herokuapp.com/'
+div#commentDialog(style='diaply:none;', title='伊達ワル名言')
+	p= ''
+script(type='text/javascript', src='/javascripts/jquery-ui.js')
+script(type='text/javascript')
+	$(function(){
+		$('div#commentDialog').dialog({modal:true, autoOpen:false});
+		$('div#comment a').click(function(){
+			$.getJSON($(this).attr('href')).then(function(comment){
+				$('div#commentDialog').find('p').text(comment.message).end().dialog('open');
+			});
+			return false;
+		});
+	});

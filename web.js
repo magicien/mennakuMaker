@@ -55,6 +55,7 @@ app.configure(function(){
 
 app.get('/', routes.index);
 app.get('/snap', routes.newSnap);
+app.get('/snap/list', routes.getList);
 app.post('/snap', routes.createSnap);
 app.get('/snap/:id', routes.getSnapById);
 app.put('/snap/:id', routes.updateById);
