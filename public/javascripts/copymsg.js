@@ -38,6 +38,7 @@ $('#copymsg').keypress(function(e){
 			$('#copymsg').val(comment.message);
 			$('#ccopy').html(comment.message);
 		});
+		return false;
 
 	});
 	
@@ -80,6 +81,8 @@ $('#copymsg').keypress(function(e){
 	*/
 
 	$('#update').click(updateSnap);
+	//$('#ccopy_area').height($('#img').outerHeight());
+	//$('#main').height($('#ccopy_area').outerHeight());
 
 });
 var updateSnap = function(){
