@@ -29,7 +29,7 @@ div#wrapper {
 #main img {
     border-style: solid;
     border-color: #FFFFFF;
-    border-width: 2px;
+    border-width: 10px;
 
     max-width: 480px;
 }
@@ -59,6 +59,10 @@ div#create_area {
     padding: 5px;
 }
 
+input#copymsg{
+	width:200px;
+}
+
 div#edit_area {
     widht: 250px;
     height: 500px;
@@ -68,16 +72,24 @@ div#edit_area {
 
 }
 
+div#edit_area button#update{
+	margin:0px;
+	margin-left:40px;
+}
+
 /*
 #create_button btn {
     width: 100px;
     height: 50px;
 }
 */
+div#colbox{
+	display:-webkit-box;
+}
 div.cselector{
 	width:16px;
 	height:16px;
-	margin:0px;
+	margin:3px;
 	padding:3px;
 	background-color:#aaa;
 	border-radius:3px;
@@ -188,7 +200,7 @@ div#create input{
 	width:300px;
 }
 
-div#create span.guide{
+div#create span.guide, a#getcopy{
 	font-size:12px;
 }
 

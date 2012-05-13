@@ -20,25 +20,27 @@ div#wrapper
 		div#edit_area.box
 			h メッセージ編集
 			ul
-				li キャッチコピー: 
+				li 伊達ワルヴォイス: 
+				a#getcopy(src='/comment/random')='ランダム' 
 				input#copymsg(type='text',value=snap.message)
-				input#getcopy(type='button',value='GET');
-				li 大きさ:
+				li 伊達ワルサイズ:
 				input#input_size(type='range',value=snap.decoration.fontSize,min='5',max='50')
-				li 本文色:
-				div#color1(class='cselector')
-					div(class='inner')
-				li シャドウ:
-				div#color2(class='cselector')
-					div(class='inner')
-				li 角度:
+				li 伊達ワル傾き:
 				input#input_rotate(type='range',value=snap.transform.rotate,min='-50',max='50')
+				li 伊達ワルの色気(本文, 外周):
+				div#colbox
+					div#color1(class='cselector')
+						div(class='inner')
+					div#color2(class='cselector')
+						div(class='inner')
 				input#input_left(type='hidden',value=snap.transform.left)
 				input#input_top(type='hidden',value=snap.transform.top)
-				button#update='update'
+			button#update='伊達ワルをグレードアップ'
 
+	div(style='clear:both;')
 	div#footer
 		p= '本サービスは本家メンズナックルとは何の関係もないです'
+		a(href='/')='http://mennakumaker.herokuapp.com/'
 
 script(type='text/javascript',src='/javascripts/copymsg.js')
 script(type='text/javascript',src='/javascripts/colorpicker.js')
