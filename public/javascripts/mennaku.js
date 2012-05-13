@@ -17,6 +17,7 @@ g.dragging
 
 *** functions ***
 init()             -- call when page is loaded.
+decodeBR()         -- decode br tag
 updateMessagePosition() -- update message position for updating css params
 calcMovableArea()  -- calc movable area of message
 adjustPosition()   -- adjust position of message (check bounds of image)
@@ -36,6 +37,7 @@ g.margin = 10;
       g.image = document.getElementById("img");
       g.ccopy = document.getElementById("ccopy");
 
+      decodeBR();
       autoAddBreakLine();
 
       // set ccopy position
@@ -54,6 +56,11 @@ g.margin = 10;
 
       //g.info = document.getElementById("info");
       //showInfo();
+    }
+
+    function decodeBR() {
+	var message = g.ccopy.innerHTML.replace("&lt;br /&gt;","<br />");
+	g.ccopy.innerHTML = message;
     }
 
     function autoAddBreakLine() {
