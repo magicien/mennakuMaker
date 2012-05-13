@@ -22,8 +22,6 @@ div#wrapper
 								a(href='/snap/'+snaps[2]._id)
 									div 
 										img.sumbnail(src=snaps[2].imageURI)
-				div#mens
-					ul
 			div#subcontents
 				div.box
 					a(href='/snap/')
@@ -31,6 +29,11 @@ div#wrapper
 				div#comment.box
 					a(href='/comment/random')
 						img(src='/images/pickup_message.png', alt='伊達ワルな一言')
+				div.box
+					div.inner
+						h2= 'その他の伊達ワル達'
+						a(href='/snap/list')
+							span='GO!'
 	div#footer
 		p= '本サービスは本家メンズナックルとは何の関係もありません'
 		a(href='/')='http://mennakumaker.herokuapp.com/'

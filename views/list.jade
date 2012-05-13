@@ -4,13 +4,14 @@ div#wrapper
 			a(href= '/')
 				img(src='/images/logo.png')
 		div#twin
-			div#contents
-				div#top
+			div#contents2
+				div#mens
 					h2= '伊達ワルMEN'
-					div#list
-						each snap in snaps
+					each snap in snaps
+						div.sumbWrap
 							a(href= '/snap/' + snap._id)
 								img.sumb2(src=snap.imageURI)
+					div(style='clear:both;')
 			div#subcontents
 				div.box
 					a(href='/snap/')
@@ -18,6 +19,11 @@ div#wrapper
 				div#comment.box
 					a(href='/comment/random')
 						img(src='/images/pickup_message.png', alt='伊達ワルな一言')
+				div.box
+					div.inner
+						h2= 'その他の伊達ワル達'
+						a(href='/snap/list')
+							span='GO!'
 	div#footer
 		p= '本サービスは本家メンズナックルとは何の関係もありません'
 		a(href='/')='http://mennakumaker.herokuapp.com/'
@@ -32,5 +38,10 @@ script(type='text/javascript')
 				$('div#commentDialog').find('p').text(comment.message).end().dialog('open');
 			});
 			return false;
+		});
+		$('div.sumbWrap img').each(function(){
+			if(!$(this).attr('src') || $(this).attr('src') === ''){
+				$(this).parent().parent().remove();
+			}
 		});
 	});
