@@ -50,6 +50,10 @@ $('#copymsg').keypress(function(e){
 		$('#ccopy').css('-webkit-transform','rotate\('+$('#input_rotate').val()+'deg\)');
 		updateMessagePosition();
 	});
+
+
+	$('#color1 div.inner').css('backgroundColor', decoration.color);
+	$('#color2 div.inner').css('backgroundColor', decoration.textShadow.color);
 	
 	$(function(){
 		$('#color1').ColorPicker({
